@@ -1,0 +1,4 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres # 开发用localhost数据库
+    driverClassName: org.postgresql.Driver

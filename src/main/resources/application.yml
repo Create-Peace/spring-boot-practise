@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: dev
+  jpa:
+    show-sql: true
+
+    hibernate:
+      dialect: com.ming.practise.common.config.JsonbPostgresDialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    open-in-view: true
