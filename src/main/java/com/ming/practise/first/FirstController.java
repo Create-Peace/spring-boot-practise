@@ -1,9 +1,15 @@
 package com.ming.practise.first;
 
+import com.ming.practise.common.validateException.ValidateException;
+import org.springframework.boot.context.properties.bind.BindResult;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/first")
@@ -18,7 +24,13 @@ public class FirstController {
     }
 
     @PostMapping()
-    public Object createInfo(@RequestBody @Validated Person person) {
+    public Object createInfo(@RequestBody @Validated Person person, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            List<String> errors = bindingResult.getAllErrors().stream()
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .collect(Collectors.toList());
+            throw new ValidateException(errors);
+        }
         System.out.println(person);
         return person;
     }
