@@ -1,5 +1,6 @@
 package com.ming.practise.first;
 
+import com.ming.practise.common.validateException.BingingResultChecker;
 import com.ming.practise.common.validateException.ValidateException;
 import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -24,13 +25,8 @@ public class FirstController {
     }
 
     @PostMapping()
+    @BingingResultChecker
     public Object createInfo(@RequestBody @Validated Person person, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            List<String> errors = bindingResult.getAllErrors().stream()
-                .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                .collect(Collectors.toList());
-            throw new ValidateException(errors);
-        }
         System.out.println(person);
         return person;
     }
