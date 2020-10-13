@@ -2,12 +2,11 @@ package com.ming.practise.common.config;
 
 import com.ming.practise.common.config.bean.ResponseView;
 import com.ming.practise.common.enums.OperationStatus;
-import com.ming.practise.common.validateException.ValidateException;
+import com.ming.practise.common.validate.ValidateException;
 import javassist.NotFoundException;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
@@ -18,7 +17,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.persistence.EntityNotFoundException;
 import javax.security.auth.message.AuthException;
-import java.util.List;
 
 @RestControllerAdvice
 public class ControllerAdvice implements ResponseBodyAdvice<Object> {

@@ -1,4 +1,4 @@
-package com.ming.practise.common.validateException;
+package com.ming.practise.common.validate;
 
 import java.util.List;
 

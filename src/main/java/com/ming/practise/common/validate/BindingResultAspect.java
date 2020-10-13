@@ -1,4 +1,4 @@
-package com.ming.practise.common.validateException;
+package com.ming.practise.common.validate;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
