@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Configuration
-@ConfigurationProperties(prefix = "practise")
+//@ConfigurationProperties(prefix = "practise")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Resource
   private UserDetailsServiceImpl userService;
